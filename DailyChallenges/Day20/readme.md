@@ -1,3 +1,6 @@
+## Setup using Kind:
+https://github.com/Sagar2366/LearnWithSagar/blob/main/CKA/9_kind_cluster_installation.md
+
 # __Multicluster management:__
 -	Orchestrating multiple clusters often deployed across multiple environments (like cloud providers)
 -	Supports workload distribution, scaling, and policy enforcement across clusters.
