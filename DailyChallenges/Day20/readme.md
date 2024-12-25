@@ -1,4 +1,4 @@
-## Setup using Kind:
+Setup using Kind:
 https://github.com/Sagar2366/LearnWithSagar/blob/main/CKA/9_kind_cluster_installation.md
 
 # __Multicluster management:__
