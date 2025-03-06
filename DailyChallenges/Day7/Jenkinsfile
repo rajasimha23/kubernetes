@@ -38,6 +38,7 @@ pipeline{
             steps{
                 script{
                     echo "building docker image"
+                    sh 'cd $WORKSPACE/DailyChallenges/Day7'
                     sh 'docker build -t flask-app .'
                     sh 'docker run -p 5000:5000 flask-app'
                 }
