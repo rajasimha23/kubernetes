@@ -1,0 +1,42 @@
+def gv
+pipeline{
+    agent any
+
+    stages{
+        stage('Testing'){
+            steps{
+                script{
+                    echo "testing with pytest=========="
+                    sh '''
+                        pip install '.[test]'
+                        pytest
+                    '''
+                }
+            }
+        }
+        /*
+        stage('build image'){
+            steps{
+                script{
+                    echo "building docker image"
+                    withCredentials([usernamePassword(credentialsId: 'dockerhub-repo', passwordVariable: 'PASS', usernameVariable: 'USER')])
+                    {
+                        sh 'docker build -t rajasimha23/myrepo:flask-app .'
+                        sh 'echo $PASS | docker login -u $USER --password-stdin'
+                        sh 'docker push rajasimha23/myrepo:flask-app'
+                    }
+                }
+            }
+        }
+*/
+        stage('build image and deploy'){
+            steps{
+                script{
+                    echo "building docker image"
+                    sh 'docker build -t flask-app .'
+                    sh 'docker run -p 5000:5000 flask-app'
+                }
+            }
+        }
+    }
+}
