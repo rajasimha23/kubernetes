@@ -2,6 +2,14 @@ def gv
 pipeline{
     agent any
 
+
+    stages{
+        stage('Installing dependencies'){
+            steps{
+                sh 'apt update && apt install -y python3-pip || true'
+            }
+        }
+
     stages{
         stage('Testing'){
             steps{
