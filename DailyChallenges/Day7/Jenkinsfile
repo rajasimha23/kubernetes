@@ -4,13 +4,13 @@ pipeline{
 
 
     stages{
+        
         stage('Installing dependencies'){
             steps{
-                sh 'apt update && apt install -y python3-pip || true'
+                sh 'sudo apt update && sudo apt install -y python3-pip || true'
             }
         }
 
-    stages{
         stage('Testing'){
             steps{
                 script{
