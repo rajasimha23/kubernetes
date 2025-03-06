@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  redis-server:
+    image: redis:4.0.2
+    container_name: redis-server-1
+    ports:
+      - "5000:5000"
+  
+  yelb-db:
+    image: mreferre/yelb-db:0.6
+    container_name: yelb-db-1
+    ports:
+      - "5432:5432"
+
+  yelb-appserver:
+    image: mreferre/yelb-appserver:0.7
+    container_name: yelb-appserver-1
+    ports:
+      - "4567:4567"
+    environment:
+    - RACK_ENV=test
+
+  yelb-ui:
+    image: mreferre/yelb-ui:0.10
+    container_name: yelb-ui-1
+    ports:
+      - "8080:80"
+    environment:
+    - UI_ENV=test
