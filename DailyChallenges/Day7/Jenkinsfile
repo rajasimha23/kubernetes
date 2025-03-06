@@ -9,11 +9,10 @@ pipeline{
             steps{
                 script{
                     echo "testing with pytest=========="
-                    
                     sh '''
                         cd $WORKSPACE/DailyChallenges/Day7/tutorial
                         python3 -m venv .venv
-                        source .venv/bin/activate
+                        . .venv/bin/activate
                         pip install '.[test]'
                         pytest
                     '''
